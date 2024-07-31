@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:minHeight="50dp"
-        android:text="10초 동안 색깔과 일치한 버튼을 눌러\n빠르게 높은 점수를 얻는 게임입니다."
+        android:text="10초 동안 글자 일치한 색상 버튼을 눌러\n빠르게 높은 점수를 얻는 게임입니다."
         android:textColor="#000000"
         android:textSize="15sp" />
     <TextView

@@ -19,21 +19,22 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-public class Game3Activity extends AppCompatActivity {
+public class Game4Activity extends AppCompatActivity {
     private static final String TAG = "tag";
     Handler handler = new Handler();
-    SharedPreferences sharedPreferences_game3;
+    SharedPreferences sharedPreferences_game4;
     TextView textView_time,textView_score,textView_color;
-    Button button_red, button_blue;
+    Button button_red, button_blue, button_green, button_yellow;
     int score = 0;
     int max = 0;
 
-    String[] color_name = {"빨강", "파랑"};
-    String[] color = {"#FF0000", "#0040FF"};// 빨 파 순서
+    String[] color_name = {"빨강", "파랑", "초록", "노랑"};
+    String[] color = {"#FF0000", "#0040FF", "#08FF00", "#FFF200"};// 빨 파 초 노 순서
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game3);
+        setContentView(R.layout.activity_game4);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //전체화면 작업표시줄 없애기
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -41,20 +42,21 @@ public class Game3Activity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //다크모드 방지
 
-        textView_time = findViewById(R.id.textView_game3_time);
-        textView_score = findViewById(R.id.textView_game3_score);
-        textView_color = findViewById(R.id.textView_game3_color);
+        textView_time = findViewById(R.id.textView_game4_time);
+        textView_score = findViewById(R.id.textView_game4_score);
+        textView_color = findViewById(R.id.textView_game4_color);
 
-        button_red = findViewById(R.id.button_game3_red);
-        button_blue = findViewById(R.id.button_game3_blue);
+        button_red = findViewById(R.id.button_game4_red);
+        button_blue = findViewById(R.id.button_game4_blue);
+        button_green = findViewById(R.id.button_game4_green);
+        button_yellow = findViewById(R.id.button_game4_yellow);
 
-        sharedPreferences_game3 = getSharedPreferences("dialog_game3", Context.MODE_PRIVATE);
-        int key = sharedPreferences_game3.getInt("key3", 0);
+        sharedPreferences_game4 = getSharedPreferences("dialog_game4", Context.MODE_PRIVATE);
+        int key = sharedPreferences_game4.getInt("key4", 0);
         Log.d(TAG, "저장된 key 값" + key);
         max = key;
 
-
-        Dialog dialog = new Dialog(Game3Activity.this);
+        Dialog dialog = new Dialog(Game4Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_game3);
         dialog.setCanceledOnTouchOutside(false);
@@ -65,6 +67,8 @@ public class Game3Activity extends AppCompatActivity {
         dialog_score.setText("최고 기록 : "+key+"점");
         button_red.setEnabled(false);
         button_blue.setEnabled(false);
+        button_yellow.setEnabled(false);
+        button_green.setEnabled(false);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +100,8 @@ public class Game3Activity extends AppCompatActivity {
                         startTimer();
                         button_red.setEnabled(true);
                         button_blue.setEnabled(true);
+                        button_green.setEnabled(true);
+                        button_yellow.setEnabled(true);
                     }
                 },4000);
             }
@@ -104,7 +110,7 @@ public class Game3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(Game3Activity.this, MainActivity.class);
+                Intent intent = new Intent(Game4Activity.this, MainActivity.class);
                 finish();
                 startActivity(intent);
             }
@@ -158,9 +164,51 @@ public class Game3Activity extends AppCompatActivity {
                 Log.d(TAG,"현재 점수 : " + score);
             }
         });
-
+        button_green.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(textView_color.getText().toString().equals("초록")){
+                    score++;
+                    int random_color_name2 = (int) (Math.random()*color_name.length);
+                    int random_color2 = (int) (Math.random()*color.length);
+                    textView_color.setText(""+color_name[random_color_name2]);
+                    textView_color.setTextColor(Color.parseColor(color[random_color2]));
+                    textView_score.setText(score+"점");
+                }else{
+                    score--;
+                    score--;
+                    int random_color_name2 = (int) (Math.random()*color_name.length);
+                    int random_color2 = (int) (Math.random()*color.length);
+                    textView_color.setText(""+color_name[random_color_name2]);
+                    textView_color.setTextColor(Color.parseColor(color[random_color2]));
+                    textView_score.setText(score+"점");
+                }
+                Log.d(TAG,"현재 점수 : " + score);
+            }
+        });
+        button_yellow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(textView_color.getText().toString().equals("노랑")){
+                    score++;
+                    int random_color_name2 = (int) (Math.random()*color_name.length);
+                    int random_color2 = (int) (Math.random()*color.length);
+                    textView_color.setText(""+color_name[random_color_name2]);
+                    textView_color.setTextColor(Color.parseColor(color[random_color2]));
+                    textView_score.setText(score+"점");
+                }else{
+                    score--;
+                    score--;
+                    int random_color_name2 = (int) (Math.random()*color_name.length);
+                    int random_color2 = (int) (Math.random()*color.length);
+                    textView_color.setText(""+color_name[random_color_name2]);
+                    textView_color.setTextColor(Color.parseColor(color[random_color2]));
+                    textView_score.setText(score+"점");
+                }
+                Log.d(TAG,"현재 점수 : " + score);
+            }
+        });
     }
-
     private void startTimer(){
         new CountDownTimer(10000, 10) {
 
@@ -177,12 +225,14 @@ public class Game3Activity extends AppCompatActivity {
                 textView_time.setText("00:00");
                 button_red.setEnabled(false);
                 button_blue.setEnabled(false);
+                button_green.setEnabled(false);
+                button_yellow.setEnabled(false);
 
 
                 if(score > max){
                     max = score;
-                    SharedPreferences.Editor editor = sharedPreferences_game3.edit();
-                    editor.putInt("key3", max);
+                    SharedPreferences.Editor editor = sharedPreferences_game4.edit();
+                    editor.putInt("key4", max);
                     editor.apply();
                     Log.d(TAG, "현재 점수 : " + score);
                     Log.d(TAG, "현재 최고 점수 : " + max);
@@ -192,7 +242,7 @@ public class Game3Activity extends AppCompatActivity {
         }.start();
     }
     private void showRestartDialog() {
-        Dialog dialog = new Dialog(Game3Activity.this);
+        Dialog dialog = new Dialog(Game4Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_game1);
         dialog.setCanceledOnTouchOutside(false);
@@ -208,7 +258,7 @@ public class Game3Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                Intent intent = new Intent(Game3Activity.this, Game3Activity.class);
+                Intent intent = new Intent(Game4Activity.this, Game4Activity.class);
                 finish();
                 startActivity(intent);
                 overridePendingTransition(0, 0);
@@ -218,7 +268,7 @@ public class Game3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(Game3Activity.this, MainActivity.class);
+                Intent intent = new Intent(Game4Activity.this, MainActivity.class);
                 finish();
                 startActivity(intent);
             }
