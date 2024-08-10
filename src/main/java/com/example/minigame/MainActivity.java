@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         layout2 = findViewById(R.id.main_item2);
         layout3 = findViewById(R.id.main_item3);
         layout4 = findViewById(R.id.main_item4);
+        layout5 = findViewById(R.id.main_item5);
 
         layout1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +77,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        layout5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Game5Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
     @Override
     public void onBackPressed() {

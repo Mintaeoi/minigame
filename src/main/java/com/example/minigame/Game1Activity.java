@@ -53,6 +53,7 @@ public class Game1Activity extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_game1);
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
+        dialog.setCancelable(false);
         Button start = (Button)dialog.findViewById(R.id.dialog_game1_button);
         Button end = (Button)dialog.findViewById(R.id.dialog_game1_button2);
         TextView dialog_score = (TextView)dialog.findViewById(R.id.dialog_game1_text2);
@@ -148,7 +149,7 @@ public class Game1Activity extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_game1);
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
-
+        dialog.setCancelable(false);
         TextView dialog_score = dialog.findViewById(R.id.dialog_game1_text2);
         Button restart = dialog.findViewById(R.id.dialog_game1_button);
         Button end = dialog.findViewById(R.id.dialog_game1_button2);
