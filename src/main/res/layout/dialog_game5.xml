@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:minHeight="50dp"
-        android:text="화면에 주어지는 성공확률에 대해\n성공 혹은 실패에 배팅을 하여 \n기회 3번 동안 최대한 많은 점수를 업으세요."
+        android:text="화면에 주어지는 성공확률에 대해\n성공 혹은 실패에 배팅을 하여 \n기회 3번 동안 최대한 많은 점수를 얻으세요."
         android:textColor="#000000"
         android:textSize="15sp" />
 
