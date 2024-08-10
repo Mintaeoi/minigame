@@ -119,13 +119,13 @@ public class Game5Activity extends AppCompatActivity {
         button_success.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Game(true);
+                Game(true); // 성공에 배팅
             }
         });
         button_fail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Game(false);
+                Game(false); // 실패에 배팅
             }
         });
     }
@@ -134,12 +134,13 @@ public class Game5Activity extends AppCompatActivity {
             Random random = new Random();
             int randomValue = random.nextInt(100)+1; // 1~100까지 난수 생성
             boolean isWin = isSuccessBet ? randomValue <= successProbability : randomValue <= failProbability; //success or fail안에 들어올 확률
-            textView_random.setText(successProbability+"%");
+
             if (isWin) { // 배팅을 성공했을 때
                 score++;
                 textView_score.setText(score+"점");
-                successProbability -= 5;
-                failProbability += 5;
+                successProbability = random.nextInt(100)+1;
+                failProbability = 100-successProbability;
+                textView_random.setText(successProbability+"%");
 
             } else { // 배팅을 실패했을 때
                 chance--;
@@ -150,6 +151,9 @@ public class Game5Activity extends AppCompatActivity {
                 }else if(chance == 0){
                     life1.setImageResource(android.R.drawable.btn_star_big_off);
                 }
+                successProbability = random.nextInt(100)+1;
+                failProbability = 100-successProbability;
+                textView_random.setText(successProbability+"%");
             }
             if (chance == 0) {
                 showRestartDialog();
