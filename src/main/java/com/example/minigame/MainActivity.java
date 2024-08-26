@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         layout3 = findViewById(R.id.main_item3);
         layout4 = findViewById(R.id.main_item4);
         layout5 = findViewById(R.id.main_item5);
+        layout6 = findViewById(R.id.main_item6);
 
         layout1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game5Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        layout6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Game6Activity.class);
                 startActivity(intent);
                 finish();
             }
