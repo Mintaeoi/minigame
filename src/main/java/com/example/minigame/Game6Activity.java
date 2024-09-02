@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -69,7 +70,8 @@ public class Game6Activity extends AppCompatActivity {
         currentRedButtonIndex = random.nextInt(button.length);
 
         // 새로 선택된 버튼의 배경색을 #123456 색상으로 변경
-        button[currentRedButtonIndex].setBackgroundColor(R.drawable.button_game6_circle_red);
+        button[currentRedButtonIndex].setBackgroundResource(R.drawable.button_game6_circle_red);
+        button[currentRedButtonIndex].setTag("red");
 
         Dialog dialog = new Dialog(Game6Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -114,6 +116,7 @@ public class Game6Activity extends AppCompatActivity {
                     public void run() {
                         for(int i = 0; i < 16; i++){
                             button[i].setEnabled(true);
+                            startTimer();
                         }
                     }
                 },4000);
@@ -134,6 +137,15 @@ public class Game6Activity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if ("red".equals(v.getTag())) {
+                        // 버튼이 빨간색으로 설정된 경우 처리할 코드
+                        score++;  // 예: 점수 증가
+                        textView_score.setText(score+"점");
+                    }else{
+                        score--;
+                        score--;
+                        textView_score.setText(score+"점");
+                    }
                     changeRandomButtonColor();
                 }
             });
@@ -142,13 +154,81 @@ public class Game6Activity extends AppCompatActivity {
     private void changeRandomButtonColor() {
         // 기존 색상 변경된 버튼 색깔 초기화 (이전에 색상이 변경된 경우)
         if (currentRedButtonIndex != -1) {
-            button[currentRedButtonIndex].setBackgroundColor(R.drawable.button_game6_circle); // 기본 색상으로 변경 (원하는 기본 색상 사용)
+            button[currentRedButtonIndex].setBackgroundResource(R.drawable.button_game6_circle); // 기본 색상으로 변경 (원하는 기본 색상 사용)
+            for(int i = 0; i < 16; i++){
+                button[i].setTag("green");
+            }
         }
 
         // 0부터 15 사이의 새로운 랜덤 인덱스 생성
         currentRedButtonIndex = random.nextInt(button.length);
-
         // 새로 선택된 버튼의 배경색을 #123456 색상으로 변경
-        button[currentRedButtonIndex].setBackgroundColor(R.drawable.button_game6_circle_red);
+        button[currentRedButtonIndex].setBackgroundResource(R.drawable.button_game6_circle_red);
+        button[currentRedButtonIndex].setTag("red");
+    }
+
+    private void startTimer(){
+        new CountDownTimer(15000, 10) {
+
+            public void onTick(long millisUntilFinished) {
+                // 매 틱마다 호출되는 코드
+                int seconds = (int) (millisUntilFinished / 1000);
+                int milliseconds = (int) ((millisUntilFinished % 1000)/10);
+                String timeLeftFormatted = String.format("%02d:%02d", seconds, milliseconds);
+                textView_time.setText(timeLeftFormatted);
+            }
+
+            public void onFinish() {
+                // 타이머가 끝났을 때 호출되는 코드
+                textView_time.setText("00:00");
+                for(int i = 0; i < 16; i++){
+                    button[i].setEnabled(false);
+                }
+
+
+                if(score > max){
+                    max = score;
+                    SharedPreferences.Editor editor = sharedPreferences_game6.edit();
+                    editor.putInt("key6", max);
+                    editor.apply();
+                    Log.d(TAG, "현재 점수 : " + score);
+                    Log.d(TAG, "현재 최고 점수 : " + max);
+                }
+                showRestartDialog();
+            }
+        }.start();
+    }
+    private void showRestartDialog() {
+        Dialog dialog = new Dialog(Game6Activity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_game6);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+
+        TextView dialog_score = dialog.findViewById(R.id.dialog_game6_text2);
+        Button restart = dialog.findViewById(R.id.dialog_game6_button);
+        Button end = dialog.findViewById(R.id.dialog_game6_button2);
+        dialog_score.setText("점수: " + score + "점" +"\n최고 기록: " + max + "점");
+
+        restart.setText("다시 시작");
+        restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent intent = new Intent(Game6Activity.this, Game6Activity.class);
+                finish();
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+        });
+        end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent intent = new Intent(Game6Activity.this, MainActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
     }
 }
