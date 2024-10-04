@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="#FFDD00"
+        android:background="#EF4A4A"
         android:minHeight="?attr/actionBarSize">
 
         <TextView
@@ -96,11 +96,19 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/maruburi_light"
+                                android:fontFamily="@font/timernum2"
                                 android:text="손가락 스피드"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/timernum2"
+                                android:text="액티브 게임"
+                                android:textColor="#909090"
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -147,8 +155,16 @@
                                 android:text="시간 감각"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_light"
+                                android:fontFamily="@font/timernum2"
                                 android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/timernum2"
+                                android:text="센스 게임"
+                                android:textColor="#909090"
+                                android:textSize="15sp"  />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -195,8 +211,16 @@
                                 android:text="순간 판단력"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_light"
+                                android:fontFamily="@font/timernum2"
                                 android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/timernum2"
+                                android:text="순발력 게임"
+                                android:textColor="#909090"
+                                android:textSize="15sp"  />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -243,8 +267,16 @@
                                 android:text="순간 판단력 PLUS+"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_light"
+                                android:fontFamily="@font/maruburi_bold"
                                 android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/timernum2"
+                                android:text="순발력 게임"
+                                android:textColor="#909090"
+                                android:textSize="15sp"  />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -291,8 +323,16 @@
                                 android:text="강심장 테스트"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_light"
+                                android:fontFamily="@font/maruburi_bold"
                                 android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/timernum2"
+                                android:text="복불복 게임"
+                                android:textColor="#909090"
+                                android:textSize="15sp"  />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -339,8 +379,16 @@
                                 android:text="빠른 포착"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_light"
+                                android:fontFamily="@font/maruburi_bold"
                                 android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/timernum2"
+                                android:text="순발력 게임"
+                                android:textColor="#909090"
+                                android:textSize="15sp"  />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

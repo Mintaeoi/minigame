@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -45,6 +47,7 @@ public class Game2Activity extends AppCompatActivity {
         Dialog dialog = new Dialog(Game2Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_game2);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         Button start = (Button)dialog.findViewById(R.id.dialog_game2_button);
@@ -113,12 +116,15 @@ public class Game2Activity extends AppCompatActivity {
         Dialog dialog = new Dialog(Game2Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_game2);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         TextView textView = (TextView)dialog.findViewById(R.id.dialog_game2_text1);
+        TextView title = (TextView)dialog.findViewById(R.id.dialog_game2_title);
         Button restart = (Button)dialog.findViewById(R.id.dialog_game2_button);
         Button end = (Button)dialog.findViewById(R.id.dialog_game2_button2);
         textView.setText("누른 후 5초와 시간 차이는 "+elapsedTimeString + "입니다.");
+        title.setText("게임 결과");
 
         restart.setOnClickListener(new View.OnClickListener() {
             @Override

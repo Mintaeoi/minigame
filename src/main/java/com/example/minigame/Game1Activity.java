@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -51,6 +53,7 @@ public class Game1Activity extends AppCompatActivity {
         Dialog dialog = new Dialog(Game1Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_game1);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         dialog.setCancelable(false);
@@ -147,13 +150,25 @@ public class Game1Activity extends AppCompatActivity {
         Dialog dialog = new Dialog(Game1Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_game1);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         dialog.setCancelable(false);
         TextView dialog_score = dialog.findViewById(R.id.dialog_game1_text2);
+        TextView title = dialog.findViewById(R.id.dialog_game1_title);
         Button restart = dialog.findViewById(R.id.dialog_game1_button);
         Button end = dialog.findViewById(R.id.dialog_game1_button2);
         dialog_score.setText("점수: " + score + "점" +"\n최고 기록: " + max + "점");
+        title.setText("게임 결과");
+        restart.setEnabled(false);
+        end.setEnabled(false);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                restart.setEnabled(true);
+                end.setEnabled(true);
+            }
+        },1000);
 
         restart.setText("다시 시작");
         restart.setOnClickListener(new View.OnClickListener() {
