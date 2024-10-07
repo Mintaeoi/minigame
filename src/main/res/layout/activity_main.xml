@@ -267,7 +267,7 @@
                                 android:text="순간 판단력 PLUS+"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_bold"
+                                android:fontFamily="@font/timernum2"
                                 android:textStyle="bold"/>
 
                             <TextView
@@ -323,7 +323,7 @@
                                 android:text="강심장 테스트"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_bold"
+                                android:fontFamily="@font/timernum2"
                                 android:textStyle="bold"/>
 
                             <TextView
@@ -379,7 +379,7 @@
                                 android:text="빠른 포착"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                android:fontFamily="@font/maruburi_bold"
+                                android:fontFamily="@font/timernum2"
                                 android:textStyle="bold"/>
 
                             <TextView

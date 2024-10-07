@@ -6,7 +6,7 @@
                 android:radius="100dp"
                 />
             <solid
-                android:color="#FFF200"
+                android:color="#EFEC4A"
                 />
             <padding
                 android:left="0dp"
@@ -32,7 +32,7 @@
                 android:radius="100dp"
                 />
             <solid
-                android:color="#BDB400"
+                android:color="#D0CE41"
                 />
             <padding
                 android:left="0dp"

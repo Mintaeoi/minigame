@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFCDF">
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -149,10 +149,11 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button_game5_success"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/button_game5_success"
                     android:text=""
                     android:layout_margin="10sp"/>
             </LinearLayout>
@@ -186,10 +187,11 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button_game5_fail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/button_game5_fail"
                     android:text=""
                     android:layout_margin="10sp"/>
             </LinearLayout>

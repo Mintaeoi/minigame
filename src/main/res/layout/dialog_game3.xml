@@ -39,7 +39,7 @@
         android:minHeight="50dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/timernum2"
-        android:text="10초 동안 글자 일치한 색상 버튼을 눌러\n빠르게 높은 점수를 얻는 게임입니다."
+        android:text="15초 동안 글자 일치한 색상 버튼을 눌러\n빠르게 높은 점수를 얻는 게임입니다."
         android:textColor="#000000"
         android:textSize="15sp" />
     <TextView

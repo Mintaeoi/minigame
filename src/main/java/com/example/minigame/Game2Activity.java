@@ -44,6 +44,8 @@ public class Game2Activity extends AppCompatActivity {
         //다크모드 방지
         sharedPreferences_game2 = getSharedPreferences("dialog_game2", Context.MODE_PRIVATE);
         int key = sharedPreferences_game2.getInt("key2", 0);
+
+
         Dialog dialog = new Dialog(Game2Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_game2);
