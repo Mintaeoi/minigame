@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
+    android:background="@drawable/dialog"
     android:gravity="center"
     android:minWidth="300dp"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:paddingLeft="20sp"
+    android:paddingRight="20sp"
+    android:paddingBottom="20sp"
+    android:paddingTop="10sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/dialog_title">
+
+        <TextView
+            android:id="@+id/dialog_game6_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="게임 방법"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:fontFamily="@font/timernum2"
+            android:padding="10sp"
+            />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/dialog_game6_text1"
@@ -15,6 +37,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:minHeight="50dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/timernum2"
         android:text="화면에 있는 빨간 점을 터치하면\n점수를 획득할 수 있습니다.\n제한 시간 안에 가장 많은 점수를 얻으세요."
         android:textColor="#000000"
         android:textSize="15sp" />
@@ -27,6 +51,7 @@
         android:gravity="center"
         android:minHeight="50dp"
         android:text="최고 기록 : 0점"
+        android:fontFamily="@font/timernum2"
         android:textColor="#000000"
         android:textSize="20sp" />
 
@@ -56,6 +81,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dialog_game1"
                 android:text="시작"
+                android:fontFamily="@font/timernum2"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -93,6 +119,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dialog_game1"
                 android:text="돌아가기"
+                android:fontFamily="@font/timernum2"
                 android:textSize="14sp" />
         </LinearLayout>
 

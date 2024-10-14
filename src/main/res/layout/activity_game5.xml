@@ -68,7 +68,7 @@
                     android:id="@+id/imageView_game5_life1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
+                    app:srcCompat="@drawable/game5_life" />
             </LinearLayout>
 
             <LinearLayout
@@ -81,7 +81,7 @@
                     android:id="@+id/imageView_game5_life2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
+                    app:srcCompat="@drawable/game5_life" />
             </LinearLayout>
 
             <LinearLayout
@@ -94,7 +94,7 @@
                     android:id="@+id/imageView_game5_life3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
+                    app:srcCompat="@drawable/game5_life" />
             </LinearLayout>
         </LinearLayout>
 

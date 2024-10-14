@@ -19,7 +19,7 @@
         android:background="@drawable/dialog_title">
 
         <TextView
-            android:id="@+id/dialog_game2_title"
+            android:id="@+id/dialog_game5_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="게임 방법"
@@ -39,6 +39,7 @@
         android:gravity="center"
         android:minHeight="50dp"
         android:text="화면에 주어지는 성공확률에 대해\n성공 혹은 실패에 배팅을 하여 \n기회 3번 동안 최대한 많은 점수를 얻으세요."
+        android:fontFamily="@font/timernum2"
         android:textColor="#000000"
         android:textSize="15sp" />
 
@@ -50,6 +51,7 @@
         android:gravity="center"
         android:minHeight="50dp"
         android:text="최고 기록 : 0점"
+        android:fontFamily="@font/timernum2"
         android:textColor="#000000"
         android:textSize="20sp" />
 
@@ -79,6 +81,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dialog_game1"
                 android:text="시작"
+                android:fontFamily="@font/timernum2"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -116,6 +119,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dialog_game1"
                 android:text="돌아가기"
+                android:fontFamily="@font/timernum2"
                 android:textSize="14sp" />
         </LinearLayout>
 

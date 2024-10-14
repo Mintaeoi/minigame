@@ -148,11 +148,11 @@ public class Game5Activity extends AppCompatActivity {
             } else { // 배팅을 실패했을 때
                 chance--;
                 if(chance == 2){
-                    life3.setImageResource(android.R.drawable.btn_star_big_off);
+                    life3.setImageResource(R.drawable.game5_life_lost);
                 }else if(chance == 1){
-                    life2.setImageResource(android.R.drawable.btn_star_big_off);
+                    life2.setImageResource(R.drawable.game5_life_lost);
                 }else if(chance == 0){
-                    life1.setImageResource(android.R.drawable.btn_star_big_off);
+                    life1.setImageResource(R.drawable.game5_life_lost);
                 }
                 successProbability = random.nextInt(100)+1;
                 failProbability = 100-successProbability;
@@ -184,10 +184,12 @@ public class Game5Activity extends AppCompatActivity {
         dialog.show();
         dialog.setCancelable(false);
         TextView dialog_score = dialog.findViewById(R.id.dialog_game5_text2);
+        TextView title = dialog.findViewById(R.id.dialog_game5_title);
         Button restart = dialog.findViewById(R.id.dialog_game5_button);
         Button end = dialog.findViewById(R.id.dialog_game5_button2);
         dialog_score.setText("점수: " + score + "점" +"\n최고 기록: " + max + "점");
 
+        title.setText("게임 결과");
         restart.setText("다시 시작");
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
