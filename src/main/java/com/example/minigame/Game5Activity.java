@@ -191,6 +191,16 @@ public class Game5Activity extends AppCompatActivity {
 
         title.setText("게임 결과");
         restart.setText("다시 시작");
+        restart.setEnabled(false);
+        end.setEnabled(false);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                restart.setEnabled(true);
+                end.setEnabled(true);
+            }
+        },1000);
+
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

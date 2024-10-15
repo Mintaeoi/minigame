@@ -27,13 +27,17 @@ public class Game6Activity extends AppCompatActivity {
 
     Handler handler = new Handler();
     SharedPreferences sharedPreferences_game6;
-    private Button[] button = new Button[16];
+    private Button[] button1 = new Button[8];
+    private Button[] button2 = new Button[8];
     private TextView textView_time, textView_score;
     private Random random = new Random();
 
     int score = 0;
     int max = 0;
-    private int currentRedButtonIndex = -1; // 현재 색상 변경된 버튼의 인덱스 저장
+    private int currentRedButtonIndex1 = -1;// 현재 색상 변경된 버튼의 인덱스 저장1
+    private int currentRedButtonIndex1_1 = 0;
+    private int currentRedButtonIndex2 = -1;// 현재 색상 변경된 버튼의 인덱스 저장2
+    private int currentRedButtonIndex2_1 = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,22 +48,22 @@ public class Game6Activity extends AppCompatActivity {
         //가로화면 전환 방지
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        button[0] = findViewById(R.id.button1_game6);
-        button[1] = findViewById(R.id.button2_game6);
-        button[2] = findViewById(R.id.button3_game6);
-        button[3] = findViewById(R.id.button4_game6);
-        button[4] = findViewById(R.id.button5_game6);
-        button[5] = findViewById(R.id.button6_game6);
-        button[6] = findViewById(R.id.button7_game6);
-        button[7] = findViewById(R.id.button8_game6);
-        button[8] = findViewById(R.id.button9_game6);
-        button[9] = findViewById(R.id.button10_game6);
-        button[10] = findViewById(R.id.button11_game6);
-        button[11] = findViewById(R.id.button12_game6);
-        button[12] = findViewById(R.id.button13_game6);
-        button[13] = findViewById(R.id.button14_game6);
-        button[14] = findViewById(R.id.button15_game6);
-        button[15] = findViewById(R.id.button16_game6);
+        button1[0] = findViewById(R.id.button1_game6);
+        button1[1] = findViewById(R.id.button2_game6);
+        button1[2] = findViewById(R.id.button3_game6);
+        button1[3] = findViewById(R.id.button4_game6);
+        button1[4] = findViewById(R.id.button5_game6);
+        button1[5] = findViewById(R.id.button6_game6);
+        button1[6] = findViewById(R.id.button7_game6);
+        button1[7] = findViewById(R.id.button8_game6);
+        button2[0] = findViewById(R.id.button9_game6);
+        button2[1] = findViewById(R.id.button10_game6);
+        button2[2] = findViewById(R.id.button11_game6);
+        button2[3] = findViewById(R.id.button12_game6);
+        button2[4] = findViewById(R.id.button13_game6);
+        button2[5] = findViewById(R.id.button14_game6);
+        button2[6] = findViewById(R.id.button15_game6);
+        button2[7] = findViewById(R.id.button16_game6);
         textView_time = findViewById(R.id.textView_game6_time);
         textView_score = findViewById(R.id.textView_game6_score);
 
@@ -68,11 +72,15 @@ public class Game6Activity extends AppCompatActivity {
         Log.d(TAG, "저장된 key 값" + key);
         max = key;
 
-        currentRedButtonIndex = random.nextInt(button.length);
+        currentRedButtonIndex1 = random.nextInt(button1.length);
+        currentRedButtonIndex2 = random.nextInt(button2.length);
 
         // 새로 선택된 버튼의 배경색을 #123456 색상으로 변경
-        button[currentRedButtonIndex].setBackgroundResource(R.drawable.button_game6_circle_red);
-        button[currentRedButtonIndex].setTag("red");
+        button1[currentRedButtonIndex1].setBackgroundResource(R.drawable.button_game6_circle_red);
+        button1[currentRedButtonIndex1].setTag("red1");
+
+        button2[currentRedButtonIndex2].setBackgroundResource(R.drawable.button_game6_circle_red);
+        button2[currentRedButtonIndex2].setTag("red2");
 
         Dialog dialog = new Dialog(Game6Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -85,8 +93,9 @@ public class Game6Activity extends AppCompatActivity {
         Button end = (Button)dialog.findViewById(R.id.dialog_game6_button2);
         TextView dialog_score = (TextView)dialog.findViewById(R.id.dialog_game6_text2);
         dialog_score.setText("최고 기록 : "+key+"점");
-        for(int i = 0; i < 16; i++){
-            button[i].setEnabled(false);
+        for(int i = 0; i < 8; i++){
+            button1[i].setEnabled(false);
+            button2[i].setEnabled(false);
         }
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,8 +125,9 @@ public class Game6Activity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        for(int i = 0; i < 16; i++){
-                            button[i].setEnabled(true);
+                        for(int i = 0; i < 8; i++){
+                            button1[i].setEnabled(true);
+                            button2[i].setEnabled(true);
                         }
                         startTimer();
                     }
@@ -135,11 +145,11 @@ public class Game6Activity extends AppCompatActivity {
             }
         });
 
-        for (Button button : button) {
+        for (Button button : button1) {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ("red".equals(v.getTag())) {
+                    if ("red1".equals(v.getTag())) {
                         // 버튼이 빨간색으로 설정된 경우 처리할 코드
                         score++;  // 예: 점수 증가
                         textView_score.setText(score+"점");
@@ -148,25 +158,63 @@ public class Game6Activity extends AppCompatActivity {
                         score--;
                         textView_score.setText(score+"점");
                     }
-                    changeRandomButtonColor();
+                    changeRandomButtonColor1();
+                }
+            });
+        }
+        for (Button button : button2) {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if ("red2".equals(v.getTag())) {
+                        // 버튼이 빨간색으로 설정된 경우 처리할 코드
+                        score++;  // 예: 점수 증가
+                        textView_score.setText(score+"점");
+                    }else{
+                        score--;
+                        score--;
+                        textView_score.setText(score+"점");
+                    }
+                    changeRandomButtonColor2();
                 }
             });
         }
     }
-    private void changeRandomButtonColor() {
+    private void changeRandomButtonColor1() {
         // 기존 색상 변경된 버튼 색깔 초기화 (이전에 색상이 변경된 경우)
-        if (currentRedButtonIndex != -1) {
-            button[currentRedButtonIndex].setBackgroundResource(R.drawable.button_game6_circle); // 기본 색상으로 변경 (원하는 기본 색상 사용)
-            for(int i = 0; i < 16; i++){
-                button[i].setTag("green");
+        if (currentRedButtonIndex1 != -1) {
+            button1[currentRedButtonIndex1].setBackgroundResource(R.drawable.button_game6_circle); // 기본 색상으로 변경 (원하는 기본 색상 사용)
+            for (int i = 0; i < 8; i++) {
+                button1[i].setTag("green1");
             }
         }
+        //중복된 위치에 등장시키지 않기 위해서
+        currentRedButtonIndex1_1 = currentRedButtonIndex1;
+        do {
+            // 0부터 15 사이의 새로운 랜덤 인덱스 생성
+            currentRedButtonIndex1 = random.nextInt(button1.length);
+        } while (currentRedButtonIndex1 == currentRedButtonIndex1_1);
+        button1[currentRedButtonIndex1].setBackgroundResource(R.drawable.button_game6_circle_red);
+        button1[currentRedButtonIndex1].setTag("red1");
 
-        // 0부터 15 사이의 새로운 랜덤 인덱스 생성
-        currentRedButtonIndex = random.nextInt(button.length);
+    }
+    private void changeRandomButtonColor2() {
+        // 기존 색상 변경된 버튼 색깔 초기화 (이전에 색상이 변경된 경우)
+        if (currentRedButtonIndex2 != -1) {
+            button2[currentRedButtonIndex2].setBackgroundResource(R.drawable.button_game6_circle); // 기본 색상으로 변경 (원하는 기본 색상 사용)
+            for (int i = 0; i < 8; i++) {
+                button2[i].setTag("green2");
+            }
+        }
+        //중복된 위치에 등장시키지 않기 위해서
+        currentRedButtonIndex2_1 = currentRedButtonIndex2;
+        do {
+            // 0부터 15 사이의 새로운 랜덤 인덱스 생성
+            currentRedButtonIndex2 = random.nextInt(button2.length);
+        } while (currentRedButtonIndex2 == currentRedButtonIndex2_1);
         // 새로 선택된 버튼의 배경색을 #123456 색상으로 변경
-        button[currentRedButtonIndex].setBackgroundResource(R.drawable.button_game6_circle_red);
-        button[currentRedButtonIndex].setTag("red");
+        button2[currentRedButtonIndex2].setBackgroundResource(R.drawable.button_game6_circle_red);
+        button2[currentRedButtonIndex2].setTag("red2");
     }
 
     private void startTimer(){
@@ -183,8 +231,9 @@ public class Game6Activity extends AppCompatActivity {
             public void onFinish() {
                 // 타이머가 끝났을 때 호출되는 코드
                 textView_time.setText("00:00");
-                for(int i = 0; i < 16; i++){
-                    button[i].setEnabled(false);
+                for(int i = 0; i < 8; i++){
+                    button1[i].setEnabled(false);
+                    button2[i].setEnabled(false);
                 }
 
 
@@ -212,8 +261,19 @@ public class Game6Activity extends AppCompatActivity {
         Button restart = dialog.findViewById(R.id.dialog_game6_button);
         Button end = dialog.findViewById(R.id.dialog_game6_button2);
         dialog_score.setText("점수: " + score + "점" +"\n최고 기록: " + max + "점");
+
         title.setText("게임 결과");
         restart.setText("다시 시작");
+        restart.setEnabled(false);
+        end.setEnabled(false);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                restart.setEnabled(true);
+                end.setEnabled(true);
+            }
+        },1000);
+
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

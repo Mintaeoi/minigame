@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="게임 리스트"
+            android:text="Game List"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
             android:fontFamily="@font/timernum2"
@@ -106,7 +106,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/timernum2"
-                                android:text="액티브 게임"
+                                android:text="피지컬 게임"
                                 android:textColor="#909090"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -162,7 +162,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/timernum2"
-                                android:text="센스 게임"
+                                android:text="동체 시력 게임"
                                 android:textColor="#909090"
                                 android:textSize="15sp"  />
                         </LinearLayout>
@@ -386,7 +386,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/timernum2"
-                                android:text="순발력 게임"
+                                android:text="동체 시력 게임"
                                 android:textColor="#909090"
                                 android:textSize="15sp"  />
                         </LinearLayout>
