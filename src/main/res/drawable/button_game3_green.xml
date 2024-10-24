@@ -20,7 +20,7 @@
                 />
             <stroke
                 android:width="5dp"
-                android:color="#B8B8B8"
+                android:color="#BCFFB1"
                 />
         </shape>
     </item>
@@ -46,7 +46,7 @@
                 />
             <stroke
                 android:width="5dp"
-                android:color="#B8B8B8"
+                android:color="#9DD694"
                 />
 
         </shape>

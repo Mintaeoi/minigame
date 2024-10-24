@@ -35,6 +35,7 @@
             android:fontFamily="@font/timernum"
             android:gravity="center"
             android:text="0점"
+            android:textColor="#FF2222"
             android:textSize="50sp" />
     </LinearLayout>
 

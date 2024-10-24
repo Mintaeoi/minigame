@@ -294,4 +294,11 @@ public class Game6Activity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        int aa = 0;
+        if(aa == 1){
+            super.onBackPressed();
+        }
+    }
 }
