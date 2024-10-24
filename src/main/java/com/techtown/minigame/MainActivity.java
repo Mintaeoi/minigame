@@ -1,4 +1,4 @@
-package com.example.minigame;
+package com.techtown.minigame;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -8,12 +8,8 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout  layout1, layout2, layout3, layout4, layout5, layout6;

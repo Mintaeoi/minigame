@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.minigame"
+    namespace = "com.techtown.minigame"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.minigame"
+        applicationId = "com.techtown.minigame"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

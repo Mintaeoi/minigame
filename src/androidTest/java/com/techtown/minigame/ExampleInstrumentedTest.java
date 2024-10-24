@@ -1,4 +1,4 @@
-package com.example.minigame;
+package com.techtown.minigame;
 
 import android.content.Context;
 
